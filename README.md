@@ -14,6 +14,7 @@ This repository combines two sides of learning and research in **Adversarial Mac
 ---
 
 ## 📂 Repository Structure
+```text
 ├── data/
 │ ├── mapping.csv # Master dataset (spreadsheet-friendly)
 │ ├── mapping.json # Machine-readable dataset
@@ -49,6 +50,7 @@ This repository combines two sides of learning and research in **Adversarial Mac
 │ └── checkpoints/ # Saved models
 │
 └── README.md
+```
 
 ---
 
