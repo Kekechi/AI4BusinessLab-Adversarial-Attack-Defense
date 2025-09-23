@@ -1,0 +1,4 @@
+FROM tensorflow/tensorflow:latest-jupyter
+WORKDIR /tf
+
+RUN pip install adversarial-robustness-toolbox
