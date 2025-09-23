@@ -1,0 +1,11 @@
+# Python / notebooks
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Obsidian (keep notes portable, ignore app state)
+.obsidian/
+
+# Data & outputs
+data/external/*
+!data/external/README.md
