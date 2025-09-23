@@ -6,6 +6,7 @@ x-common: &common
   volumes:
     - ../notebooks:/tf/ai4business
     - ../data/external:/tf/external-data
+  pull_policy: never
 
 services:
   notebook-cpu:
