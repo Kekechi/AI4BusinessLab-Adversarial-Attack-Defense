@@ -1,0 +1,48 @@
+{
+  "paper_id": 2,
+  "title": "Overfitting in adversarially robust deep learning",
+  "authors": ["Leslie Rice", "Eric Wong", "J. Zico Kolter"],
+  "year": 2020,
+  "venue": "arXiv",
+  "task": {
+    "value": "Image Classification",
+    "evidence": "p. 1: \"Adversarial training is a method for hardening classifiers against adversarial attacks\"."
+  },
+  "threat_model": {
+    "value": null,
+    "evidence": null
+  },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "p. 1: \"adversarial attacks, i.e. small perturbations to the input\"."
+  },
+  "attack_methodology": {
+    "value": "Gradient-based",
+    "evidence": "p. 4: \"some adversarial attack method, typically with projected gradient descent (PGD)\"."
+  },
+  "representative_methods": {
+    "value": ["FGSM", "PGD", "TRADES"],
+    "evidence": "p. 2: \"fast gradient sign method (FGSM)\"; \"basic iterative method\"; \"projected gradient descent (PGD)\"; \"TRADES\"."
+  },
+  "defense": {
+    "value": "Adversarial Training",
+    "evidence": "p. 4: \"Adversarial training ... solves the following robust optimization problem\"."
+  },
+  "datasets": {
+    "value": ["SVHN", "CIFAR-10", "CIFAR-100", "ImageNet"],
+    "evidence": "p. 1: \"across multiple datasets (SVHN, CIFAR-10, CIFAR-100, and ImageNet)\"."
+  },
+  "evaluation_aspects": {
+    "value": ["Digital", "Benchmarking / Comparative Study"],
+    "evidence": "p. 1 (Fig. 1): \"PGD adversary for `∞ radius of ε = 8/255\"; p. 13 (Table 3): \"over a variety of datasets, adversarial training algorithms, and perturbation threat models\"."
+  },
+  "evaluation_validity": {
+    "value": ["Reproducibility"],
+    "evidence": "p. 1: \"All code for reproducing the experiments ... can be found at https://github.com/locuslab/robust_overfitting.\""
+  },
+  "contribution_type": {
+    "value": "Applied Study",
+    "evidence": "p. 1: \"we empirically study this phenomenon ... in the setting of adversarially trained deep networks\"."
+  },
+  "notes": null
+}
