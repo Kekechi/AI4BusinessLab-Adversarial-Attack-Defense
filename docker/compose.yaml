@@ -1,13 +1,26 @@
 name: ai4business
+
+x-common: &common
+  ports:
+    - 8888:8888
+  volumes:
+    - ../notebooks:/tf/ai4business
+    - ../data/external:/tf/external-data
+  pull_policy: never
+
 services:
-  notebook:
-    image: ai4business-notebook
+  notebook-cpu:
+    <<: *common
+    image: ai4business-notebook:cpu
     build:
-      dockerfile: ./dockerfile
-    ports:
-      - 8888:8888
-    volumes:
-      - ../notebooks:/tf/ai4business
+      dockerfile: ./dockerfile.cpu
+  notebook-gpu:
+    <<: *common
+    profiles:
+      - gpu
+    image: ai4business-notebook:gpu
+    build:
+      dockerfile: ./dockerfile.gpu
     deploy:
       resources:
         reservations:
