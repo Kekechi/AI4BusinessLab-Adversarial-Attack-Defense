@@ -1,0 +1,58 @@
+{
+  "attack_methodology": {
+    "evidence": "Abstract (p. 1): \"a robust physical adversarial example... in the physical world.\" ",
+    "value": "Physical-world"
+  },
+  "attack_objective": {
+    "evidence": "Sec. C (p. 19): \"a more advanced disappearance attack... not to draw the bounding box of the object 'person'.\" ",
+    "value": "Evasion"
+  },
+  "authors": [
+    "Kaidi Xu",
+    "Gaoyuan Zhang",
+    "Sijia Liu",
+    "Quanfu Fan",
+    "Mengshu Sun",
+    "Hongge Chen",
+    "Pin-Yu Chen",
+    "Yanzhi Wang",
+    "Xue Lin"
+  ],
+  "contribution_type": {
+    "evidence": "Abstract/Intro (p. 1): \"we propose Adversarial T-shirts...\" and \"first work that models the effect of deformation... non-rigid objects such as T-shirts.\" ",
+    "value": "Novel Attack"
+  },
+  "datasets": {
+    "evidence": "Sec. 4.1 (p. 9): \"pretrained on COCO dataset [22]\". ",
+    "value": ["COCO"]
+  },
+  "defense": {
+    "evidence": null,
+    "value": null
+  },
+  "evaluation_aspects": {
+    "evidence": "Abstract (p. 1): \"74%... digital and 57%... physical\"; Sec. 4.2 (p. 10): \"transfer single-detector attack\"; Sec. 4.3 (p. 11): \"compare our method with advPatch and advT-Affine\". ",
+    "value": ["Digital", "Physical-world"]
+  },
+  "evaluation_validity": {
+    "evidence": "Abstract (p. 1): \"state-of-the-art physical attack method... only achieves 18% attack success rate.\" ",
+    "value": ["Strong Baseline"]
+  },
+  "notes": null,
+  "paper_id": 3,
+  "representative_methods": {
+    "evidence": "Sec. 4 (p. 9): \"we call advT-TPS\"; \"we call advT-Affine\". Table 1 (p. 11): \"advPatch[30]\". ",
+    "value": []
+  },
+  "task": {
+    "evidence": "p. 1: \"Evading Person Detectors in A Physical World.\" ",
+    "value": "Object Detection"
+  },
+  "threat_model": {
+    "evidence": null,
+    "value": null
+  },
+  "title": "Adversarial T-shirt! Evading Person Detectors in A Physical World",
+  "venue": "arXiv",
+  "year": 2020
+}

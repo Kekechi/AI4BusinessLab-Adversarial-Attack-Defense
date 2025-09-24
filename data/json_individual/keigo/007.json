@@ -1,0 +1,55 @@
+{
+  "paper_id": 1,
+  "title": "Adversarial Machine Learning at Scale",
+  "authors": ["Alexey Kurakin", "Ian J. Goodfellow", "Samy Bengio"],
+  "year": 2017,
+  "venue": "ICLR 2017",
+  "task": {
+    "value": "Image Classification",
+    "evidence": "p. 2: \"we studied adversarial training of Inception models trained on ImageNet.\" "
+  },
+  "threat_model": {
+    "value": null,
+    "evidence": null
+  },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "p. 1: \"attacks based on small modifications of the input to the model at test time\"; \"perform a misclassification attack\". "
+  },
+  "attack_methodology": {
+    "value": "Gradient-based / One-step",
+    "evidence": "Sec. 2.1 (p. 2): \"One-step methods ... generate a candidate adversarial image after computing only one gradient.\" "
+  },
+  "representative_methods": {
+    "value": ["FGSM", "Basic Iterative Method (BIM)"],
+    "evidence": "Sec. 2.2 (p. 3): \"Fast gradient sign method (FGSM)\"; \"Basic iterative method\". "
+  },
+  "defense": {
+    "value": "Adversarial Training",
+    "evidence": "p. 1: \"Adversarial training is the process of explicitly training a model on adversarial examples.\" "
+  },
+  "datasets": {
+    "value": ["ImageNet", "MNIST"],
+    "evidence": "p. 2: \"ImageNet dataset\"; p. 6: \"We revisited the adversarially trained MNIST classifier\". "
+  },
+  "evaluation_aspects": {
+    "value": [
+      "White-box Setting",
+      "Black-box Setting",
+      "Targeted",
+      "Untargeted",
+      "Digital",
+      "Transferability Studied"
+    ],
+    "evidence": "p. 8: \"enabling an attacker in the black-box scenario\". "
+  },
+  "evaluation_validity": {
+    "value": [],
+    "evidence": null
+  },
+  "contribution_type": {
+    "value": "Applied Study",
+    "evidence": "Abstract (p. 1): \"we apply adversarial training to ImageNet\". "
+  },
+  "notes": null
+}

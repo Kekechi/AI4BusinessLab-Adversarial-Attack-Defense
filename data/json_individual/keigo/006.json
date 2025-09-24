@@ -1,0 +1,56 @@
+{
+  "paper_id": 6,
+  "title": "Intriguing properties of neural networks",
+  "authors": [
+    "Christian Szegedy",
+    "Wojciech Zaremba",
+    "Ilya Sutskever",
+    "Joan Bruna",
+    "Dumitru Erhan",
+    "Ian Goodfellow",
+    "Rob Fergus"
+  ],
+  "year": 2013,
+  "venue": "arXiv",
+  "task": {
+    "value": "Image Classification",
+    "evidence": "Sec. 4 (p. 4): “... an object recognition task."
+  },
+  "threat_model": {
+    "value": "White-box",
+    "evidence": "Sec. 4.1 (p. 5): “we approximate it by using a box-constrained L-BFGS."
+  },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "Sec. 4 (p. 4): “obtained by imperceptibly small perturbations … so that it is no longer classified correctly."
+  },
+  "attack_methodology": {
+    "value": "",
+    "evidence": ""
+  },
+  "representative_methods": {
+    "value": ["L-BFGS"],
+    "evidence": "Sec. 4.1 (p. 5): “box-constrained L-BFGS."
+  },
+  "defense": {
+    "value": "Adversarial Training",
+    "evidence": "Sec. 4.2 (p. 6): “keeping a pool of adversarial examples … mixed into the original training set."
+  },
+  "datasets": {
+    "value": ["MNIST", "ImageNet", "YouTube (QuocNet)"],
+    "evidence": "Sec. 2 (p. 2): “The MNIST dataset”; “The ImageNet dataset”; “∼ 10M image samples from Youtube"
+  },
+  "evaluation_aspects": {
+    "value": ["White-box Setting", "Digital"],
+    "evidence": "Sec. 4.1 (p. 5): “for a given x and target label l …”; Table 2 (p. 7): “Cross-model generalization of adversarial examples.”; Sec. 4 (p. 4): “imperceptibly small perturbations …”. "
+  },
+  "evaluation_validity": {
+    "value": [],
+    "evidence": null
+  },
+  "contribution_type": {
+    "value": "Novel Attack",
+    "evidence": "Sec. 4 (p. 4): “we are able to find adversarial examples … using a simple optimization procedure.”"
+  },
+  "notes": null
+}

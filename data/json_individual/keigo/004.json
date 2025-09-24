@@ -1,0 +1,37 @@
+{
+  "paper_id": 4,
+  "title": "A Survey of Adversarial Examples in Computer Vision: Attack, Defense, and Beyond",
+  "authors": ["Keyizhi Xu", "Yajuan Lu", "Zhongyuan Wang", "Chao Liang"],
+  "year": 2025,
+  "venue": "Wuhan University Journal of Natural Sciences",
+
+  "task": { "value": null, "evidence": null },
+
+  "threat_model": { "value": null, "evidence": null },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "Abstract (p. 1): \"carefully crafted adversarial examples can easily mislead DNNs into incorrect behavior via the injection of imperceptible modification to the input data.\""
+  },
+  "attack_methodology": { "value": null, "evidence": null },
+
+  "representative_methods": {
+    "value": [],
+    "evidence": "Table 2 (pp. 7–9): \"FGSM, PGD, C&W, DeepFool, AutoAttack, Square attack.\""
+  },
+  "defense": { "value": null, "evidence": null },
+
+  "datasets": { "value": [], "evidence": null },
+
+  "evaluation_aspects": {
+    "value": [],
+    "evidence": "Taxonomy (p. 4): \"categorize the adversarial attacks by... adversarial targets [and] adversarial knowledge\"; p. 2: \"attacks in the physical world and those in the digital domain differ\"; p. 5: transfer-based attacks exploit the \"transferability property\"."
+  },
+  "evaluation_validity": { "value": [], "evidence": null },
+
+  "contribution_type": {
+    "value": "Survey / Benchmark",
+    "evidence": "Contributions (p. 3): \"We carry out a concise survey in the field of adversarial examples.\""
+  },
+
+  "notes": null
+}
