@@ -1,0 +1,55 @@
+{
+  "paper_id": 9,
+  "title": "Adversarial Examples in the Physical World",
+  "authors": ["Alexey Kurakin", "Ian J. Goodfellow", "Samy Bengio"],
+  "year": 2017,
+  "venue": "ICLR 2017 Workshop",
+  "task": {
+    "value": "Image Classification",
+    "evidence": "p. 3: \"This scenario is a simple physical world system which perceives data through a camera and then runs image classification.\""
+  },
+  "threat_model": {
+    "value": "White-box",
+    "evidence": "p. 3: \"we have assumed a threat model under which the attacker has full knowledge of the model architecture and parameter values.\""
+  },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "p. 2: \"adversarial manipulation of their input intended to cause incorrect classification.\""
+  },
+  "attack_methodology": {
+    "value": "Physical-world",
+    "evidence": "Sec. 3.2 (p. 6): \"We printed clean and adversarial images, took photos of the printed pages.\""
+  },
+  "representative_methods": {
+    "value": ["FGSM", "BIM"],
+    "evidence": "Sec. 2.1 (p. 4): \"Xadv = X + ϵ sign(∇XJ(X, ytrue))\" | Sec. 2.2 (p. 4): \"we apply it multiple times with small step size\" | Sec. 2.3 (p. 5): \"we introduce the iterative least-likely class method\"."
+  },
+  "defense": {
+    "value": null,
+    "evidence": null
+  },
+  "datasets": {
+    "value": ["ImageNet"],
+    "evidence": "p. 5: \"The accuracy was computed on all 50, 000 validation images from the ImageNet dataset.\""
+  },
+  "evaluation_aspects": {
+    "value": [
+      "White-box Setting",
+      "Black-box Setting",
+      "Targeted",
+      "Untargeted",
+      "Digital",
+      "Physical-world"
+    ],
+    "evidence": "Sec. 3.4 (p. 9): \"we demonstrated... black box... fool a different model\" | Sec. 2.3 (pp. 4–5): \"classified as a specific desired target class\" | Sec. 3.2 (p. 6): \"We printed... took photos\" | Fig. 2 (p. 5): \"Top-1 and top-5 accuracy... under attack by different adversarial methods.\""
+  },
+  "evaluation_validity": {
+    "value": [],
+    "evidence": null
+  },
+  "contribution_type": {
+    "value": "Novel Attack",
+    "evidence": "Sec. 2.2 (p. 4): \"We introduce a straightforward way to extend the 'fast' method—we apply it multiple times.\""
+  },
+  "notes": null
+}
