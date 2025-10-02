@@ -1,0 +1,61 @@
+{
+  "paper_id": 10,
+  "title": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+  "authors": [
+    "Aleksander Madry",
+    "Aleksandar Makelov",
+    "Ludwig Schmidt",
+    "Dimitris Tsipras",
+    "Adrian Vladu"
+  ],
+  "year": 2019,
+  "venue": "arXiv",
+
+  "task": {
+    "value": "Image Classification",
+    "evidence": "p. 3: \"In image classification, we choose S so that it captures perceptual similarity between images.\""
+  },
+
+  "threat_model": {
+    "value": "White-box",
+    "evidence": "Table 1, p. 13: \"the network itself (A) (white-box attack)\"."
+  },
+  "attack_objective": {
+    "value": "Evasion",
+    "evidence": "pp. 1–2: \"manipulate the input so that the model produces an incorrect output.\""
+  },
+  "attack_methodology": {
+    "value": "Gradient-based / Iterative",
+    "evidence": "Sec. 2.1, p. 4: \"A more powerful adversary is the multi-step variant, which is essentially projected gradient descent (PGD).\""
+  },
+
+  "representative_methods": {
+    "value": ["FGSM", "PGD", "CW"],
+    "evidence": "p. 4: \"Fast Gradient Sign Method (FGSM)\"; p. 11: \"Carlini–Wagner (CW) loss function\"."
+  },
+  "defense": {
+    "value": "Adversarial Training",
+    "evidence": "p. 4: \"adversarial training directly corresponds to optimizing this saddle point problem.\""
+  },
+
+  "datasets": {
+    "value": ["MNIST", "CIFAR-10"],
+    "evidence": "p. 2: \"train networks on MNIST and CIFAR10\"."
+  },
+
+  "evaluation_aspects": {
+    "value": ["White-box Setting", "Black-box Setting", "Targeted"],
+    "evidence": "Table 1, p. 13: \"the network itself (A) (white-box attack)\"; p. 11: \"Black-box attacks from an independently trained copy\"; Table 1, p. 13: \"Targeted\"; p. 8: \"We discuss transferability in Section B of the appendix.\""
+  },
+  "evaluation_validity": {
+    "value": ["Reproducibility"],
+    "evidence": "p. 1: \"Code and pre-trained models are available at https://github.com/MadryLab/...\""
+  },
+
+  "contribution_type": {
+    "value": "Novel Attack",
+    "evidence": "p. 2: \"Our approach is based on optimizing the aforementioned saddle point formulation and uses PGD as a reliable first-order adversary.\""
+  },
+
+  "notes": "Defense via min–max robust optimization with l_infinity-bounded perturbations; PGD used as strong first-order adversary; capacity increases robustness; evaluated against FGSM, PGD, CW; transferability analyzed."
+}
