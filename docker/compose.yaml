@@ -13,14 +13,18 @@ services:
     <<: *common
     image: ai4business-notebook:cpu
     build:
-      dockerfile: ./dockerfile.cpu
+      dockerfile: ./dockerfile
+      target: ai4business-notebook-cpu
+    profiles:
+      - ""
   notebook-gpu:
     <<: *common
     profiles:
       - gpu
     image: ai4business-notebook:gpu
     build:
-      dockerfile: ./dockerfile.gpu
+      dockerfile: ./dockerfile
+      target: ai4business-notebook-gpu
     deploy:
       resources:
         reservations:
