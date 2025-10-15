@@ -10,8 +10,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["jupyter", "notebook", "--no-browser", "--allow-root", "--ip", "0.0.0.0", "--notebook-dir=/tf"]
 
-FROM  ai4business-notebook-base AS ai4business-notebook-cpu 
-RUN pip install 'tensorflow-cpu'
+FROM  ai4business-notebook-base AS ai4business-notebook-cpu
+RUN pip install 'tensorflow'
 
 FROM ai4business-notebook-base AS ai4business-notebook-gpu
 RUN pip install 'tensorflow[and-cuda]'
