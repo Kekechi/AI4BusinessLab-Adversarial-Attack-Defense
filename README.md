@@ -1,100 +1,79 @@
-# 🔐 Adversarial Machine Learning: Paper Mapping + Hands-On Experiments
+# Adversarial ML — Reading Group Experiments and Mapping Scheme
 
-This repository combines two sides of learning and research in **Adversarial Machine Learning (AdvML)**:
+Reading notes and hands-on experiments from an undergraduate adversarial-ML reading group in
+the SDSU AI4Business Lab, 2025. Two attacks are implemented and measured with ART. A
+paper-mapping scheme was designed but not completed — see *What didn't happen* below.
 
-1. **Systematic Paper Mapping**
+## What's here
 
-   - A structured dataset of adversarial ML papers.
-   - Each paper is tagged by **Threat Model × Attack Type × Modality × Evaluation Validity**.
-   - Student notes summarize main questions, methods, and results.
+### Experiments — `notebooks/individual/keigo/`
 
-2. **Hands-On Experiments (Jupyter Notebooks)**
-   - Reproducible implementations of key adversarial attacks and defenses.
-   - Experiments connect papers to practice: visualize adversarial examples, measure robustness, and test defenses.
+- `experiment_note_fashin_mnist_fgsm.ipynb` — FGSM on Fashion-MNIST via ART (2025-09-18)
+- `experiment_note_fashin_mnist_pgd.ipynb` — PGD on Fashion-MNIST via ART (2025-10-15)
+- `experiment_note_template.ipynb` — the template both follow
+- `adversarial_fgsm.ipynb`, `classification.ipynb` — worked through from the TensorFlow tutorials
 
----
+Both experiment notes use the same structure: objective, hypothesis and success criteria stated
+*before* the run; environment captured from the machine (`pip show`, `/etc/os-release`) rather
+than asserted; then dataset, model, attack config, results, visualization.
 
-## 📂 Repository Structure
+Same architecture (Flatten → Dense 128 → Dense 10), same training recipe and same ε grid in
+both, so the two attacks are comparable:
 
-```text
-├── data/
-│   ├── mapping.csv              # Master dataset (spreadsheet-friendly, exported from Google Sheets)
-│   ├── mapping.json             # Compiled group dataset (machine-readable)
-│   ├── json_group/              # Curated JSON files (approved for mapping.json)
-│   │   ├── 001.json
-│   │   ├── 002.json
-│   │   └── ...
-│   └── json_individual/         # Individual JSON outputs (per member, raw tagging)
-│       ├── keigo/
-│       │   ├── 001.json
-│       │   └── ...
-│       ├── arthur/
-│       │   ├── 001.json
-│       │   └── ...
-│       └── shreya/
-│           ├── 001.json
-│           └── ...
-│
-├── notes/
-│   ├── group/                   # Curated, polished student notes
-│   │   ├── 001.md
-│   │   └── ...
-│   └── individual/              # Individual notes per member
-│       ├── keigo/
-│       │   ├── 001.md
-│       │   └── ...
-│       ├── arthur/
-│       │   ├── 001.md
-│       │   └── ...
-│       └── shreya/
-│           ├── 001.md
-│           └── ...
-│
-├── notebooks/
-│   ├── group/                   # Canonical, curated notebooks
-│   │   ├── 01_FGSM_MNIST.ipynb
-│   │   └── ...
-│   └── individual/              # Personal experimentation notebooks
-│       ├── keigo/
-│       │   ├── FGSM_MNIST_keigo.ipynb
-│       │   └── ...
-│       ├── arthur/
-│       │   ├── FGSM_MNIST_arthur.ipynb
-│       │   └── ...
-│       └── shreya/
-│           ├── FGSM_MNIST_shreya.ipynb
-│           └── ...
-│
-└── README.md
+| ε     | FGSM accuracy | PGD accuracy |
+| ----- | ------------- | ------------ |
+| clean | 0.8805        | 0.8850       |
+| 0.01  | 0.8070        | 0.8088       |
+| 0.05  | 0.2955        | 0.1935       |
+| 0.10  | 0.1532        | 0.0791       |
+| 0.20  | 0.0875        | 0.0732       |
 
+PGD is the stronger attack at every ε ≥ 0.05, as expected. These reproduce known results on a
+small model — the point was the method, not the finding. The two runs trained separate model
+instances, so clean accuracy differs slightly: conditions are matched, weights are not.
+
+### Reading notes — `notes/individual/keigo/`
+
+Eight notes (`003`–`010`) in a fixed format: main question, key method, main results, strengths
+and limitations, relevance, and a self-check that lists terms not yet understood. The format is
+in `template/000.md`.
+
+### Environment — `docker/`
+
+Multi-stage image with CPU and GPU targets, Compose profiles and pinned dependencies, so
+everyone runs the same stack.
+
+```bash
+docker compose up notebook-cpu          # CPU
+docker compose --profile gpu up notebook-gpu
 ```
 
----
+### Mapping scheme — `data/`
 
-## 📝 Tagging Rules
+A five-axis tagging scheme — threat model × modality × attack type × representative method ×
+evaluation validity — with a controlled glossary, an assignee plus second-reviewer workflow, and
+three rules: no tags without evidence, leave blank if unsure, always write a one-line
+plain-English summary. `data/json_individual/keigo/` holds seven tagged entries.
 
-- **No guessing.** Use `null` if info is missing.
-- **Evidence required.** Cite section/figure/table for each tag.
-- **Controlled vocabulary only.** Stick to glossary terms (e.g., `Image`, not `image-based`).
-- **One-line plain-English summary** for each paper.
+## What didn't happen
 
----
+The mapping was meant to cover a corpus of roughly 1000 papers and produce a curated group
+dataset. **It didn't.** `data/json_group/` and `notebooks/group/` are empty, and there is no
+`mapping.csv` or `mapping.json`.
 
-## 🧑‍🎓 Student Notes
+The binding constraint turned out to be domain foundation rather than process: tagging a paper
+usefully requires understanding it first, and the group was still building that understanding.
+The response was to slow down — reading groups, a small set of foundational papers (Goodfellow
+et al. 2015 on FGSM, Madry et al. 2017 on PGD and adversarial training) read properly, and
+deadlines moved to protect comprehension over throughput.
 
-Each paper has a short note in `/notes/{paper_id}.md`, which may cover:
+The scheme and the workflow are kept here because they are reusable. The dataset they were
+designed to produce does not exist, and nothing in this repository should be cited as one.
 
-1. Main question (1–2 sentences)
-2. Key method (1 line)
-3. One key result (dataset + outcome)
-4. Strength & limitation
-5. Applications / relevance
-6. Self-check (2-min explanation + unknown terms)
+## References
 
----
-
-## 🧪 Hands-On Notebooks
-
-Interactive experiments to reinforce learning:
-
-- .ipynb
+- Goodfellow, Shlens & Szegedy, *Explaining and Harnessing Adversarial Examples* (2015) —
+  <https://arxiv.org/abs/1412.6572>
+- Madry et al., *Towards Deep Learning Models Resistant to Adversarial Attacks* (2017) —
+  <https://arxiv.org/abs/1706.06083>
+- Adversarial Robustness Toolbox — <https://github.com/Trusted-AI/adversarial-robustness-toolbox>
