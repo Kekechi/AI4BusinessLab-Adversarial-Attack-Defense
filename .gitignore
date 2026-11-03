@@ -9,3 +9,6 @@ __pycache__/
 # Data & outputs
 data/external/*
 !data/external/README.md
+
+# venv
+venv/
